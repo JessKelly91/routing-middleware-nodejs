@@ -9,7 +9,9 @@ const router = require('./itemsRoutes');
 const app = express();
 
 app.use(express.json());
-app.use('/items', router)
+app.use(morgan('dev'));
+
+app.use('/items', router);
 
 
 // 404 Not Found Error Handler 
@@ -27,3 +29,5 @@ app.use( (err, req, res, next) => {
         error: {msg, status}    
     });
 });
+
+module.exports = app;
