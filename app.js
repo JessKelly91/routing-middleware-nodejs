@@ -6,11 +6,14 @@ const morgan = require('morgan');
 const ExpressError = require('./expressError');
 const router = require('./itemsRoutes');
 
+//instantiation of express app
 const app = express();
 
+//middleware
 app.use(express.json());
 app.use(morgan('dev'));
 
+//router
 app.use('/items', router);
 
 
