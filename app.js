@@ -33,4 +33,5 @@ app.use( (err, req, res, next) => {
     });
 });
 
+// export for server to run
 module.exports = app;
