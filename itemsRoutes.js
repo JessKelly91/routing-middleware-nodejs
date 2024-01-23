@@ -34,8 +34,10 @@ router.get('/:name', (req, res, next) => {
 router.patch('/:name', (req, res, next) => {
     try{
         const item = fakeDb.items.find(i => i.name === req.params.name);
+        const idxOfItem = fakeDb.items.indexOf(item);
+        fakeDb.items[idxOfItem] = req.body;
 
-        return res.json({message: "Updated", item: item})
+        return res.json({message: "Updated", item: req.body})
 
     }
     catch(e){
